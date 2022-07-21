@@ -9,7 +9,9 @@ namespace MauiBugs
         public MainViewModel()
         {
             TerritoryNames = new List<string>();
+            TerritoryNames.Add("India");
             TerritoryNames.Add("Germany");
+
         }
 
     }
