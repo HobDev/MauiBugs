@@ -1,2 +1,2 @@
 # MauiBugs
-Reproduction project for GitHubIssue https://github.com/dotnet/maui/issues/10587
+Reproduction project for GitHub Issue https://github.com/dotnet/maui/issues/10587
