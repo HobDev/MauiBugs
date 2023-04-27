@@ -6,8 +6,21 @@ public class MainPage : ContentPage
 	{
 		Content = new VerticalStackLayout
 		{
+			HorizontalOptions = LayoutOptions.Center,
+			VerticalOptions = LayoutOptions.Center,
 			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
+				new SwipeView
+				{
+				  RightItems= new SwipeItems
+				  (
+					  new List<SwipeItem>
+					  {
+						  new SwipeItem{Text="Hello", BackgroundColor=Colors.AliceBlue},
+					  }
+				  ),
+				  Content=new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
+                },
+				
 				}
 			}
 		};
