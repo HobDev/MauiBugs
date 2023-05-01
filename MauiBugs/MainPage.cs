@@ -13,26 +13,19 @@ public class MainPage : ContentPage
 	enum BodyColumn { first, second, third };
 	public MainPage(MainViewModel viewModel)
 	{
-		 secondLabel = new Label { Text = "I am row 2" }.Row(BodyRow.second);
-	     fourthLabel = new Label { Text = "I am row 4" }.Row(BodyRow.fourth);
+		
         Content = new Grid
 		{
 			VerticalOptions = LayoutOptions.Center,
 			HorizontalOptions = LayoutOptions.Center,
 			RowDefinitions = Rows.Define(
 				(BodyRow.first, 20),
-				(BodyRow.second, Auto),
-				(BodyRow.third, 20),
-				(BodyRow.fourth, 20),
-				(BodyRow.fifth,40)
+				(BodyRow.second, 50)
 				),
 			Children = {
-				new Label {  Text = "I am row 1"}.Row(BodyRow.first),
-				secondLabel,
-				new Label {  Text = "I am row 3"}.Row(BodyRow.third),
-				fourthLabel,
-				new Button{Text="I change visibility of second and fourth rows"}.Invoke(button=>{button.Clicked+=Button_Clicked; }).Row(BodyRow.fifth)
-			}
+				new Label { }.Bind(Label.TextProperty, nameof(viewModel.Amount), stringFormat:"{0:C}").Row(BodyRow.first),
+                 new Picker{ }.Bind(Picker.ItemsSourceProperty, nameof(viewModel.Amounts)).Bind(Picker.SelectedItemProperty, nameof(viewModel.Amount), stringFormat:"${0}").Row(BodyRow.second),
+            }
 
 
 		};
