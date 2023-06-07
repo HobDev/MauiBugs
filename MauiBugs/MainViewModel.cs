@@ -8,17 +8,16 @@ namespace MauiBugs
     public partial class MainViewModel: ObservableObject
     {
         [ObservableProperty]
-        List<Person> persons;
+        List<VenueDate> venueDates;
 
         public MainViewModel()
         {
-            persons = new List<Person>
+            VenueDates = new List<VenueDate>();
+
+            for (DateTime date = DateTime.Now; date < DateTime.Now.AddDays(89); date = date.AddDays(1))
             {
-              
-                new Person{Name="Small Name"},
-                 new Person{Name="This is really a large Name"},
-                new Person{Name="This is Medium Name"}
-            };
+                VenueDates.Add(new VenueDate { Date = date });
+            }
         }
 
     }
