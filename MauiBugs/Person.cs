@@ -1,9 +1,14 @@
 ﻿
 
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace MauiBugs
 {
-    public class Person
+    public partial class Person :ObservableObject
     {
         public string Name { get; set; }
+
+        [ObservableProperty]
+        public Color selectedColor; 
     }
 }
