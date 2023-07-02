@@ -1,6 +1,8 @@
 ﻿
 
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace MauiBugs
 {
@@ -10,16 +12,33 @@ namespace MauiBugs
         [ObservableProperty]
         List<Person> persons;
 
+        [ObservableProperty]
+        ObservableCollection<object> selectedPersons;
+
         public MainViewModel()
         {
-            persons = new List<Person>
+            SelectedPersons = new ObservableCollection<object>();
+            Persons = new List<Person>
             {
               
-                new Person{Name="Small Name"},
-                 new Person{Name="This is really a large Name"},
-                new Person{Name="This is Medium Name"}
+                new Person{Name="Waren"},
+                 new Person{Name="Bill"},
+                new Person{Name="Steve"},
+                new Person {Name= "William"}
             };
+
+             Person person= Persons.FirstOrDefault();
+            SelectedPersons.Add(person);
         }
 
+
+        [RelayCommand]
+        async Task PersonSelected()
+        {
+          if(SelectedPersons.Count > 0)
+            {
+
+            }
+        }
     }
 }

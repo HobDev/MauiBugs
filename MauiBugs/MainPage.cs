@@ -14,12 +14,13 @@ public class MainPage : ContentPage
                 {
                      Margin= new Thickness(20,10,0,0),
                      ItemSizingStrategy= ItemSizingStrategy.MeasureAllItems,
-                    HeightRequest = 60,
-                     SelectionMode = SelectionMode.Single,
+                     SelectionMode = SelectionMode.Multiple,
                      ItemsSource=viewModel.Persons,
-                      ItemsLayout = new GridItemsLayout(ItemsLayoutOrientation.Horizontal)
+                     SelectionChangedCommand= viewModel.PersonSelectedCommand,
+                     SelectedItems= viewModel.SelectedPersons,
+                      ItemsLayout = new LinearItemsLayout(ItemsLayoutOrientation.Vertical)
         {
-            HorizontalItemSpacing = 10
+            ItemSpacing = 10
         },
         ItemTemplate =new DataTemplate(() =>
         {
